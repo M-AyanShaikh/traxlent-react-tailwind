@@ -1,0 +1,1 @@
+function Voice() { return <div className='p-6'>Voice Page</div>; } export default Voice;

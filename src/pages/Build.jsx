@@ -1,0 +1,1 @@
+function Build() { return <div className='p-6'>Build Page</div>; } export default Build;

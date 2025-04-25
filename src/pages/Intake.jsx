@@ -1,0 +1,1 @@
+function Intake() { return <div className='p-6'>Intake Form Page</div>; } export default Intake;

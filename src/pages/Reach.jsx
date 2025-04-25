@@ -1,0 +1,1 @@
+function Reach() { return <div className='p-6'>Reach Page</div>; } export default Reach;
