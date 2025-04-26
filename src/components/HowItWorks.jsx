@@ -1,34 +1,36 @@
 function HowItWorks() {
   const steps = [
     {
-      title: "1. Discovery Call",
-      description: "We meet to understand your business, your goals, and your growth vision."
+      title: "Discovery Call",
+      desc: "We learn your goals, challenges, and ambitions — so we can craft solutions that fit, not force."
     },
     {
-      title: "2. Strategy Tailoring",
-      description: "We design a customized outreach, content, and build plan that fits your needs."
+      title: "Strategy Tailoring",
+      desc: "We design a custom roadmap across outreach, voice, and systems — built around your growth stage."
     },
     {
-      title: "3. Precision Execution",
-      description: "Our team brings your strategy to life with professionalism, speed, and care."
+      title: "Precision Execution",
+      desc: "We launch high-impact campaigns and build smart systems — fast, efficient, and transparent."
     },
     {
-      title: "4. Scale and Thrive",
-      description: "You watch your brand grow with high-converting systems and powerful presence."
+      title: "Scale and Thrive",
+      desc: "With better leads, a sharper brand, and scalable systems, you’re positioned to grow without bottlenecks."
     }
   ];
 
   return (
-    <section className="py-24 px-6 bg-black text-white">
-      <h2 className="text-4xl font-bold text-center mb-16">Our Process</h2>
+    <section className="py-24 px-6 bg-[#F8FAFC] text-[#111827]">
+      <h2 className="text-4xl font-bold text-center mb-16 text-[#F97316]">
+        How It Works
+      </h2>
       <div className="grid sm:grid-cols-1 md:grid-cols-4 gap-12 text-center">
         {steps.map((step, index) => (
-          <div key={index} className="flex flex-col items-center gap-4">
-            <div className="bg-[#F97316] text-black font-bold rounded-full h-16 w-16 flex items-center justify-center text-lg">
+          <div key={index} className="bg-white p-8 rounded-2xl shadow-md border border-gray-200 hover:shadow-lg transition-all duration-300">
+            <div className="bg-[#F97316] text-black font-bold rounded-full h-16 w-16 flex items-center justify-center text-lg mx-auto mb-6">
               {index + 1}
             </div>
-            <p className="font-semibold">{step.title}</p>
-            <p className="text-sm opacity-70">{step.description}</p>
+            <h3 className="text-xl font-semibold mb-4">{step.title}</h3>
+            <p className="text-sm opacity-80">{step.desc}</p>
           </div>
         ))}
       </div>

@@ -5,6 +5,8 @@ import Reach from './pages/Reach';
 import Voice from './pages/Voice';
 import Build from './pages/Build';
 import Intake from './pages/Intake';
+import WhyUs from './pages/WhyUs';
+import Services from './pages/Services';
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path="/voice" element={<Voice />} />
         <Route path="/build" element={<Build />} />
         <Route path="/intake" element={<Intake />} />
+        <Route path="/why-us" element={<WhyUs />} />
+        <Route path="/services" element={<Services />} />
       </Routes>
     </main>
   );
