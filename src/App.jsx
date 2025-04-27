@@ -10,6 +10,8 @@ import Services from './pages/Services';
 import ThankYou from './pages/ThankYou';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/thankyou" element={<ThankYou />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogPost />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
       </Routes>
     </main>
   );
