@@ -1,8 +1,17 @@
+// src/components/FinalCTA.jsx
+
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 function FinalCTA() {
   return (
-    <section className="py-24 px-6 bg-[#111827] text-[#F8FAFC] text-center">
+    <motion.section
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="py-24 px-6 bg-[#111827] text-[#F8FAFC] text-center"
+    >
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold mb-8 text-[#F97316]">
           Ready to Build Something Exceptional?
@@ -18,7 +27,7 @@ function FinalCTA() {
           Book My Discovery Call
         </Link>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

@@ -9,7 +9,7 @@ function Footer() {
 
         {/* Right side */}
         <div className="flex items-center gap-6">
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#F97316] transition">
+          <a href="https://instagram.com/traxlent.co" target="_blank" rel="noopener noreferrer" className="hover:text-[#F97316] transition">
             <svg className="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path d="M7 2C4.243 2 2 4.243 2 7v10c0 2.757 2.243 5 5 5h10c2.757 0 5-2.243 5-5V7c0-2.757-2.243-5-5-5H7zm10 2c1.654 0 3 1.346 3 3v10c0 1.654-1.346 3-3 3H7c-1.654 0-3-1.346-3-3V7c0-1.654 1.346-3 3-3h10zm-5 3c-2.757 0-5 2.243-5 5s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm0 2c1.654 0 3 1.346 3 3s-1.346 3-3 3-3-1.346-3-3 1.346-3 3-3zm4.5-2a1.5 1.5 0 110 3 1.5 1.5 0 010-3z"/>
             </svg>

@@ -1,4 +1,7 @@
+// src/components/Testimonials.jsx
+
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
 function Testimonials() {
   const testimonials = [
@@ -26,7 +29,13 @@ function Testimonials() {
   }, [testimonials.length]);
 
   return (
-    <section className="py-24 px-6 bg-[#F97316] text-black text-center">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="py-24 px-6 bg-[#F97316] text-black text-center"
+    >
       <h2 className="text-4xl font-bold mb-16">What Clients Are Saying</h2>
 
       <div className="max-w-3xl mx-auto bg-white p-8 rounded-2xl border border-black/10 shadow-md transition-all duration-500">
@@ -48,7 +57,7 @@ function Testimonials() {
           ></button>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
 

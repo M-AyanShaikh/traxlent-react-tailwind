@@ -1,3 +1,6 @@
+// src/components/ServicesPreview.jsx
+
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 function ServicesPreview() {
@@ -26,7 +29,14 @@ function ServicesPreview() {
       </h2>
       <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-12 text-center">
         {services.map((service, index) => (
-          <div key={index} className="bg-[#111827] p-8 rounded-2xl border border-[#64748B] hover:border-[#F97316] transition-all duration-300 flex flex-col justify-between">
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            className="bg-[#111827] p-8 rounded-2xl border border-[#64748B] hover:border-[#F97316] transition-all duration-300 flex flex-col justify-between"
+          >
             <div>
               <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
               <p className="text-sm opacity-80 mb-6">{service.desc}</p>
@@ -37,7 +47,7 @@ function ServicesPreview() {
             >
               Learn More
             </Link>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

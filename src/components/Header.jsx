@@ -1,8 +1,12 @@
+// src/components/Header.jsx
+
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   return (
     <header className="backdrop-blur-sm bg-black shadow-md sticky top-0 z-50">
@@ -24,17 +28,35 @@ function Header() {
           </Link>
 
           {/* Services Dropdown */}
-          <div className="group relative">
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+          >
             <Link to="/services" className="hover:text-[#F97316] transition">
               Services
             </Link>
-            {/* Dropdown */}
-            <div className="absolute hidden group-hover:flex flex-col bg-black/90 mt-2 py-2 rounded-md shadow-lg min-w-[180px] border border-white/10">
-              <Link to="/reach" className="px-4 py-2 hover:bg-[#F97316] hover:text-black transition text-left">Reach</Link>
-              <Link to="/voice" className="px-4 py-2 hover:bg-[#F97316] hover:text-black transition text-left">Voice</Link>
-              <Link to="/build" className="px-4 py-2 hover:bg-[#F97316] hover:text-black transition text-left">Build</Link>
-            </div>
+            <AnimatePresence>
+              {servicesOpen && (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-0 mt-2 flex flex-col bg-black/90 py-3 rounded-xl shadow-lg min-w-[200px] border border-white/10"
+                >
+                  <Link to="/reach" className="px-6 py-2 text-left hover:bg-[#F97316] hover:text-black transition">Reach</Link>
+                  <Link to="/voice" className="px-6 py-2 text-left hover:bg-[#F97316] hover:text-black transition">Voice</Link>
+                  <Link to="/build" className="px-6 py-2 text-left hover:bg-[#F97316] hover:text-black transition">Build</Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
+
+          {/* Insights */}
+          <Link to="/blog" className="hover:text-[#F97316] transition">
+            Insights
+          </Link>
 
           {/* CTA Button */}
           <Link
@@ -57,22 +79,31 @@ function Header() {
       </div>
 
       {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden flex flex-col items-center gap-6 py-6 bg-black/90 text-white text-lg">
-          <Link to="/why-us" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Why Us</Link>
-          <Link to="/services" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Services Overview</Link>
-          <Link to="/reach" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Reach</Link>
-          <Link to="/voice" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Voice</Link>
-          <Link to="/build" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Build</Link>
-          <Link
-            to="/intake"
-            onClick={() => setIsOpen(false)}
-            className="bg-[#F97316] hover:bg-orange-500 text-black font-semibold py-2 px-6 rounded-full transition"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden flex flex-col items-center gap-6 py-6 bg-black/90 text-white text-lg overflow-hidden"
           >
-            Start
-          </Link>
-        </div>
-      )}
+            <Link to="/why-us" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Why Us</Link>
+            <Link to="/services" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Services Overview</Link>
+            <Link to="/reach" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Reach</Link>
+            <Link to="/voice" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Voice</Link>
+            <Link to="/build" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Build</Link>
+            <Link to="/blog" onClick={() => setIsOpen(false)} className="hover:text-[#F97316] transition">Insights</Link>
+            <Link
+              to="/intake"
+              onClick={() => setIsOpen(false)}
+              className="bg-[#F97316] hover:bg-orange-500 text-black font-semibold py-2 px-6 rounded-full transition"
+            >
+              Start
+            </Link>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }
